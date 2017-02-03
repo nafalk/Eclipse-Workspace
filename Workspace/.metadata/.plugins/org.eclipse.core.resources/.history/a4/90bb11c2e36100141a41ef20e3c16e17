@@ -1,0 +1,43 @@
+package Types;
+
+import java.util.Random;
+
+
+public class Random_Number {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Random randNum = new Random();
+		int randomNumber = randNum.nextInt(100) + 1;
+		int randomNumber2 = randNum.nextInt(100) + 1;
+		int num3;
+
+		num3= 180- (randomNumber + randomNumber2);
+
+
+		System.out.printf("The Random numbers are = %d and %d \nThe missing value to get 180 is %d ", randomNumber, randomNumber2, num3);
+
+		if (randomNumber + randomNumber2 >= num3){
+			//step2();
+		}
+		else {
+			System.out.println("Does not work");}
+
+	}
+	public static void step2(){
+		if (randomNumber + num3 >= randomNumber2){
+			step3();
+		}else{
+			System.out.println("Does not work");}
+	}
+
+	public static void step3(){
+		if (randomNumber2 + num3 >= randomNumber){
+			System.out.println("It works!");
+		}else{
+			System.out.println("Does not work");}
+		}
+	}
+
+

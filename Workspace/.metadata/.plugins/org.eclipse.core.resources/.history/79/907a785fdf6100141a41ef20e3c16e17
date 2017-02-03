@@ -1,0 +1,19 @@
+package Types;
+
+import java.util.Random;
+
+
+public class Random_Number {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Random randNum = new Random();
+		int randomNumber = randNum.nextInt(100) + 1;
+		int randomNumber2 = randNum.nextInt(100) + 1;
+		int num3;
+		//180 - randomNumber + randomNumber2 = num3;
+		System.out.printf("The Random numbers are = %d and %d \nThe missing value to get 180 is %d ", randomNumber, randomNumber2, randomNumber+randomNumber2);
+	}
+
+}

@@ -1,0 +1,137 @@
+package Black_Jack;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+import Black_Jack.Card;
+import Black_Jack.Deck;
+
+public class Black_Jack {
+
+	@SuppressWarnings("static-access")
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner input = new Scanner(System.in);
+		String response = null;
+		int PlayersTotal = 0, DealersTotal = 0;
+		Deck deck = new Deck();
+
+		// Player Hand
+
+		ArrayList <Card> Players_Hand = new ArrayList <Card> ();
+
+		//Dealer Hand
+
+		ArrayList <Card> Dealers_Hand = new ArrayList <Card> ();
+
+		System.out.println("You are now playing BlackJack the goal is to get closest to 21 without going over. \nAces are worth 1 or 11 and face cards are worth 10 all others are the number value as jokers are not used in Black Jack");
+
+		//print arraylists
+		System.out.println("\nYour deck consists of:");
+		printdeck(deck.deck);
+		System.out.println("\n\n");
+
+		// add cards to hands
+
+		Add_Players_Hand(deck,Players_Hand);
+		Add_Dealers_Hand(deck,Dealers_Hand);
+		Add_Players_Hand(deck,Players_Hand);
+		Add_Dealers_Hand(deck,Dealers_Hand);
+
+
+		System.out.println("Your hand consists of:");
+		printplayer(Players_Hand);
+		System.out.println("");
+
+/*
+		System.out.println("The Deallers Hand Consists of");
+		printdealer(Dealers_Hand);
+		System.out.println("\n");
+
+*/
+
+		//Player game play
+		while (PlayersTotal <= 21 || !response.equalsIgnoreCase("Stay")){
+
+			System.out.println("Hit or Stay");
+
+			response =input.next();
+
+			if (response.equalsIgnoreCase ("Hit")){
+
+				Add_Players_Hand(deck,Players_Hand);
+				printplayer(Players_Hand);
+			}
+
+			else if (response.equalsIgnoreCase ("Stay ")){
+
+			}
+
+		}
+		// Dealers play
+		while (DealersTotal <= 21){
+
+			if (DealersTotal <21){
+				Add_Dealers_Hand(deck,Dealers_Hand);
+			}
+			else {
+				
+			}
+			
+		}
+	}
+
+
+
+	//print methods
+	public static void printdeck(ArrayList<Card> deck){
+
+		// Print names
+		for (int i=0; i<deck.size(); i++) {
+			System.out.println(deck.get(i).value  + deck.get(i).suit);
+		}
+	}
+
+	public static void printplayer(ArrayList<Card> PlayersHand){
+
+		// Print names
+		for (int i=0; i<PlayersHand.size(); i++) {
+			System.out.println(PlayersHand.get(i).value + PlayersHand.get(i).suit );
+		}
+	}
+
+	public static void printdealer(ArrayList<Card> DealersHand){
+
+		// Print names
+		for (int i=0; i<DealersHand.size(); i++) {
+			System.out.println(DealersHand.get(i).value + DealersHand.get(i).suit);
+		}
+	}
+
+	public static void printtotal(int playerstotal){
+		System.out.print(playerstotal);
+	}
+
+	//add methods
+
+	public static void Add_Dealers_Hand(Deck deck, ArrayList <Card> Dealers_Hand){
+		Dealers_Hand.add(deck.deck.get(0));
+		deck.deck.remove(0);
+	}
+
+	public static void Add_Players_Hand (Deck deck, ArrayList <Card> Players_Hand){
+		Players_Hand.add(deck.deck.get(0));
+		deck.deck.remove(0);
+	}
+
+	// players total method
+
+	public static int Players_Total(int Playerstotal, ArrayList <Card> Players_Hand){
+
+		return Playerstotal;
+	}
+
+}
